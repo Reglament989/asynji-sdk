@@ -1,0 +1,26 @@
+# Defines a default set of lint rules enforced for projects at Google. For
+# details and rationale, see
+# https://github.com/dart-lang/pedantic#enabled-lints.
+
+include: package:pedantic/analysis_options.yaml
+
+# For lint rules and documentation, see http://dart-lang.github.io/linter/lints.
+
+# Uncomment to specify additional rules.
+linter:
+  rules:
+    - camel_case_types
+    - always_declare_return_types
+    - always_put_required_named_parameters_first
+    - always_require_non_null_named_parameters
+    # - always_specify_types
+    - avoid_init_to_null
+    - await_only_futures
+    - file_names
+    - package_api_docs
+    - prefer_final_locals
+    - unawaited_futures
+
+# analyzer:
+#   exclude:
+#     - path/to/excluded/files/**
