@@ -1,29 +1,43 @@
 import 'dart:convert';
 
+import 'package:asynji_sdk/src/api/types/ws_event.dart';
+import 'package:asynji_sdk/src/storage/controlers/global.controller.dart';
+import 'package:asynji_sdk/src/storage/controlers/room.controller.dart';
 import 'package:web_socket_channel/status.dart' as status;
 import 'package:web_socket_channel/io.dart';
 
-Future startSync() async {
-  final channel = IOWebSocketChannel.connect(Uri.parse('ws://localhost:51830'),
-      pingInterval: Duration(seconds: 54),
-      headers: {
-        'X-Api-Key':
-            'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAwNTI0MjAsInVzZXJJZCI6IjYwOGZmZGNiOTFiMzI5NjY3ZTJiNTIzNiJ9.VWtH_pvwNdEnAx-aYaN0dUVhRCBilegArV8qGGfAZp5cvwtlWywezNk2elH6W5YZv0qMdi2Cy5syNIqNxD9nhA',
-        'X-Topics': json.encode({
-          'topics': [
-            '608ffb3f91b329667e2b5235',
-            '608fe70f91b3298ece43301e',
-            '6090001791b3299b0fb1c871'
-          ]
-        })
-      });
+class SyncController {
+  late final IOWebSocketChannel currentChannel;
+  final RoomController roomController = RoomController();
+  final GlobalController globalController = GlobalController();
 
-  channel.stream.listen((message) {
-    final msg = json.decode(message);
-    print(msg['Body']);
-  });
-}
+  void initinalSync() {}
 
-main(List<String> args) {
-  startSync();
+  void run() {
+    // TODO: Need check if token valid, because ws errors does not implemented.
+    currentChannel = IOWebSocketChannel.connect(
+        Uri.parse(globalController.getServerUri()),
+        pingInterval: Duration(seconds: 54),
+        headers: {
+          'X-Api-Key': globalController.getCurrentToken(),
+          'X-Topics': json.encode({'topics': roomController.getAllIdsOfRooms()})
+        });
+
+    currentChannel.stream.listen((message) {
+      try {
+        final event = Event.fromJson(json.decode(message));
+        if (event.isBodyEncrypted) {}
+        if (event.subject == EventSubject.room) {
+          // roomController.box.
+        }
+      } catch (e) {}
+    });
+  }
+
+  Future<void> close({bool restart = true}) async {
+    await currentChannel.sink.close(status.goingAway);
+    if (restart) {
+      run();
+    }
+  }
 }

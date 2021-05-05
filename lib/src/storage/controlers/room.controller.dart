@@ -16,6 +16,10 @@ class RoomController {
     return box.values.toList();
   }
 
+  List<String> getAllIdsOfRooms() {
+    return box.values.map((Room r) => r.id).toList();
+  }
+
   Room? getOneRoom(int index) {
     return box.getAt(index);
   }

@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 
 part 'room.g.dart';
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 2)
 class Room {
   @HiveField(0)
   late String id;
