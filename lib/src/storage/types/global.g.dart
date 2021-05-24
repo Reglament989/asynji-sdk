@@ -17,10 +17,10 @@ class GlobalAdapter extends TypeAdapter<Global> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Global()
-      ..token = fields[0] == null ? true : fields[0] as String
-      ..refresh_token = fields[1] == null ? true : fields[1] as String
-      ..isAuthenticated = fields[2] == null ? true : fields[2] as bool
-      ..serverUri = fields[3] == null ? true : fields[3] as String;
+      ..token = fields[0] as String
+      ..refresh_token = fields[1] as String
+      ..isAuthenticated = fields[2] as bool
+      ..serverUri = fields[3] as String;
   }
 
   @override
