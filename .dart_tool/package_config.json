@@ -104,12 +104,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "clock",
-      "rootUri": "file:///home/h/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "code_builder",
       "rootUri": "file:///home/h/.pub-cache/hosted/pub.dartlang.org/code_builder-3.7.0",
       "packageUri": "lib/",
@@ -152,12 +146,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "fake_async",
-      "rootUri": "file:///home/h/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "ffi",
       "rootUri": "file:///home/h/.pub-cache/hosted/pub.dartlang.org/ffi-1.0.0",
       "packageUri": "lib/",
@@ -178,12 +166,6 @@
     {
       "name": "flutter",
       "rootUri": "file:///opt/flutter/packages/flutter",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "flutter_test",
-      "rootUri": "file:///opt/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -542,7 +524,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-05-24T13:12:38.834412Z",
+  "generated": "2021-05-26T12:59:29.671866Z",
   "generator": "pub",
-  "generatorVersion": "2.13.0-211.14.beta"
+  "generatorVersion": "2.13.0"
 }
