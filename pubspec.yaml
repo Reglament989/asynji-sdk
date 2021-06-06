@@ -1,7 +1,9 @@
 name: asynji_sdk
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# homepage: https://www.example.com
+description: A sdk for asynji.
+version: 1.0.1
+homepage: https://github.com/Reglament989/asynji-sdk
+
+publish_to: https://pub.dev
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -15,8 +17,8 @@ dev_dependencies:
   hive_generator: ^1.0.1
   build_runner: ^1.12.2
   mockito: ^5.0.5
-  # flutter_test:
-  #   sdk: flutter
+  flutter_test:
+    sdk: flutter
 dependencies:
   dio: ^4.0.0
   hive: ^2.0.4

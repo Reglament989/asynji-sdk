@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import "package:asynji_sdk/src/base/base_model.dart";
 import "package:asynji_sdk/src/base/controllers/auth_controller.dart";
 import "package:asynji_sdk/src/base/controllers/room_controller.dart";
@@ -9,11 +11,11 @@ class SyncController extends RoomController {
   @override
   Future<void> init() async {
     await super.init();
-    this.run();
+    this.__run();
   }
 
   // You dont must call this function imedentialy, it auto run with init
-  void run() {
+  void __run() {
     wsChannel = WebSocketChannel.connect(Uri.parse(
         "ws://" + this.baseUrl.split("//").last.split(":").first + ":51830"));
     wsChannel!.stream.listen((event) {});

@@ -1,12 +1,9 @@
-// import 'package:asynji_sdk/src/asynji_sdk_base.dart';
-// import 'package:test/test.dart';
-// import 'dart:ui';
+import 'package:asynji_sdk/src/asynji_sdk_base.dart';
+import 'package:test/test.dart';
 
-// void main() {
-//   group('A group of tests', () {
-//     test('Init api', () async {
-//       final asynjiApi = Asynji();
-//       await asynjiApi.init();
-//     });
-//   });
-// }
+void main() {
+  test('Init all application', () async {
+    final asynji = Asynji();
+    await asynji.init();
+  });
+}

@@ -20,7 +20,7 @@ linter:
     - package_api_docs
     - prefer_final_locals
     - unawaited_futures
-    - prefer_double_quotes
+    # - prefer_double_quotes
 # analyzer:
 #   exclude:
 #     - path/to/excluded/files/**
